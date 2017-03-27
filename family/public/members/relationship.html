@@ -1,0 +1,40 @@
+<div id="todo-form" class="row form-horizontal"  ng-controller="RelationshipController">
+	<div class="col-sm-8 col-sm-offset-2 text-center">
+		<form>
+			<div class="form-group">
+				<label for="inputEmail" class="control-label col-xs-2">Name</label>
+				<div class="col-xs-10">
+					<ui-select ng-disabled="loading" on-select="onProductLevelSelected($item)" ng-model="productLevels.selected" theme="bootstrap" >
+			    	<ui-select-match placeholder="Pick one...">
+				  {{$select.selected.level_name}}
+					</ui-select-match>
+					<ui-select-choices repeat="item in (productCategoryLevels | filter: $select.search) track by $index">
+					<span ng-bind="item.name"></span>
+					</ui-select-choices>
+			</ui-select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail" class="control-label col-xs-2">Gender</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control input-lg text-center" placeholder="gender" ng-model="formData.gender">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail" class="control-label col-xs-2">Age</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control input-lg text-center" placeholder="Age" ng-model="formData.age">
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary btn-lg" ng-click="createMember()">Create Member</button>
+
+			<button type="submit" class="btn btn-primary btn-lg" ng-click="updateMember()">Update Member</button>
+		</form>
+	</div>
+
+	</br>
+	</br>	 
+</div>
+
+
